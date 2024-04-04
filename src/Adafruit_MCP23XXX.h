@@ -5,10 +5,11 @@
 #ifndef __ADAFRUIT_MCP23XXX_H__
 #define __ADAFRUIT_MCP23XXX_H__
 
-#include <Adafruit_BusIO_Register.h>
-#include <Adafruit_I2CDevice.h>
-#include <Adafruit_SPIDevice.h>
 #include <Arduino.h>
+
+#include "Adafruit_BusIO_Register.h"
+#include "Adafruit_I2CDevice.h"
+#include "Adafruit_SPIDevice.h"
 
 // registers
 #define MCP23XXX_IODIR 0x00   //!< I/O direction register
