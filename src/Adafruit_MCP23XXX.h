@@ -64,6 +64,8 @@ public:
   uint8_t getLastInterruptPin();
   uint16_t getCapturedInterrupt();
 
+  bool I2C_has_begun();
+
 protected:
   Adafruit_I2CDevice *i2c_dev = nullptr; ///< Pointer to I2C bus interface
   Adafruit_SPIDevice *spi_dev = nullptr; ///< Pointer to SPI bus interface
@@ -73,6 +75,7 @@ protected:
 
 private:
   uint8_t buffer[4];
+  bool _I2C_has_begun = false;
 };
 
 #endif

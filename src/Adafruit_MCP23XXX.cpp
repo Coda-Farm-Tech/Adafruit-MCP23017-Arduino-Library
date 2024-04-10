@@ -32,7 +32,9 @@
 /**************************************************************************/
 bool Adafruit_MCP23XXX::begin_I2C(uint8_t i2c_addr, TwoWire *wire) {
   i2c_dev = new Adafruit_I2CDevice(i2c_addr, wire);
-  return i2c_dev->begin();
+  this->_I2C_has_begun = i2c_dev->begin();
+
+  return this->I2C_has_begun();
 }
 
 /**************************************************************************/
@@ -297,4 +299,13 @@ uint16_t Adafruit_MCP23XXX::getRegister(uint8_t baseAddress, uint8_t port) {
   }
   // for SPI, add opcode as high byte
   return (spi_dev) ? (0x4000 | (hw_addr << 9) | reg) : reg;
+}
+
+/**************************************************************************/
+/*!
+Added methods
+*/
+/**************************************************************************/
+bool Adafruit_MCP23XXX::I2C_has_begun() {
+    return this->_I2C_has_begun;
 }
